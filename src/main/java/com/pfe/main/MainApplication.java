@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.pfe.controllers"})
+@ComponentScan(basePackages = {"com.pfe.main","com.pfe.controllers"})
 public class MainApplication {
 
 	public static void main(String[] args) {
