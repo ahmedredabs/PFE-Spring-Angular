@@ -15,7 +15,7 @@ import com.pfe.repositories.GreetingRepository;
 import com.pfe.services.IGreetingService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://frontend-citoyen.herokuapp.com"})
 public class HomeController {
 	@Autowired
 	private GreetingRepository greetingRepository;
