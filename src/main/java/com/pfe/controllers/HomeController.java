@@ -11,6 +11,6 @@ public class HomeController {
 	@GetMapping
 	private String HomeMessage() {
 		
-		return "Welcome to the website!";
+		return "Welcome!";
 	}
 }
