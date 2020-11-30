@@ -12,4 +12,9 @@ public class HomeController {
 	private String HomeMessage() {
 		return "Welcome to the website!";
 	}
+	
+	@GetMapping("example")
+	private String ExempleRoute() {
+		return "endpoint example";
+	}
 }
