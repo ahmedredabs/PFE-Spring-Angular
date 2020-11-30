@@ -17,4 +17,5 @@ public class HomeController {
 	private String ExempleRoute() {
 		return "endpoint example";
 	}
+	//test
 }
