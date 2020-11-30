@@ -1,12 +1,12 @@
 package com.pfe;
 
-import org.springframework.boot.ApplicationRunner;
+import java.util.stream.Stream;
+
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
 import com.pfe.models.Greeting;
 import com.pfe.repositories.GreetingRepository;
 
@@ -18,12 +18,15 @@ public class MainApplication {
 		SpringApplication.run(MainApplication.class, args);
 	}
 	
-	@Bean
-	ApplicationRunner applicationRunner(GreetingRepository greetingRepository) {
-		return args -> {
-			greetingRepository.save(new Greeting("hello"));
-			greetingRepository.save(new Greeting("world"));
-		};
-	}
+    @Bean
+    CommandLineRunner init(GreetingRepository greetingRepository) {
+        return args -> {
+            Stream.of("salut", "bonjour", "bonsoir", "Yo!", "Hello").forEach(message -> {
+                Greeting greeting = new Greeting(message);
+                greetingRepository.save(greeting);
+            });
+            greetingRepository.findAll().forEach(System.out::println);
+        };
+    }
 
 }
