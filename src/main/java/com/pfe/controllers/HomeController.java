@@ -10,7 +10,6 @@ public class HomeController {
 	
 	@GetMapping
 	private String HomeMessage() {
-		
-		return "Welcome!";
+		return "Welcome to the website!";
 	}
 }
