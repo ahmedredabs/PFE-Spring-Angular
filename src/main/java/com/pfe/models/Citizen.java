@@ -3,12 +3,11 @@ package com.pfe.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.data.annotation.Id;
-
 @Entity
-@Table(name = "greetings")
+@Table(name = "citizens")
 public class Citizen {
 	@Id
 	@GeneratedValue
