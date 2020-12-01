@@ -3,7 +3,10 @@ package com.pfe.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,10 +15,10 @@ import com.pfe.repositories.GreetingRepository;
 import com.pfe.services.IGreetingService;
 
 @RestController
-@RequestMapping("/")
+@CrossOrigin(origins = {"http://localhost:4200","https://frontend-citoyen.herokuapp.com"})
 public class HomeController {
 	@Autowired
-	private GreetingRepository greetingService;
+	private GreetingRepository greetingRepository;
 	
 	@GetMapping
 	private String HomeMessage() {
@@ -24,6 +27,11 @@ public class HomeController {
 	
 	@GetMapping("/greetings")
 	private Iterable<Greeting> greetings(){
-		return greetingService.findAll();
+		return greetingRepository.findAll();
+	}
+	
+	@PostMapping("/greetings")
+	void addGreeting(@RequestBody Greeting greeting) {
+		greetingRepository.save(greeting);
 	}
 }
