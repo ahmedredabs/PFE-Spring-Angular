@@ -3,8 +3,8 @@ package com.pfe.models;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "physicians")
+public class Physician {
 
     @Id
     @GeneratedValue
@@ -16,11 +16,11 @@ public class Company {
     @Column
     private String password;
 
-    public Company() {
+    public Physician(){
 
     }
 
-    public Company(String name, String password){
+    public Physician(String name, String password){
         this.name = name;
         this.password = password;
     }
@@ -37,5 +37,5 @@ public class Company {
         return password;
     }
 
-
 }
+

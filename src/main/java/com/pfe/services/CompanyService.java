@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CompanyService implements ICompanyRepository {
+public class CompanyService implements ICompanyService {
 
     @Autowired
-    private ICompanyRepository repository;
+    private ICompanyRepository CompanyRepository;
 
     @Override
-    Company createCompany() {
-        return null;
+    public void createCompany(Company newCompany) {
+        CompanyRepository.save(newCompany);
     }
-
 }
