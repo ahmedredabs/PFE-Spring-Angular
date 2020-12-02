@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.pfe.models.Greeting;
 
 @Repository
-public interface GreetingRepository extends CrudRepository<Greeting, Long>{
+public interface GreetingRepository extends CrudRepository<Greeting, Long> {
 
 }
