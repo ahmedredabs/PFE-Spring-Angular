@@ -15,5 +15,6 @@ public class CompanyService implements ICompanyService {
     @Override
     public void createCompany(Company newCompany) {
         CompanyRepository.save(newCompany);
+        System.out.println("Tout c'est bien passé");
     }
 }
