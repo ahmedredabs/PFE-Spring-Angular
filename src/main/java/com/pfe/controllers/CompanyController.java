@@ -1,10 +1,7 @@
 package com.pfe.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.pfe.models.Company;
 import com.pfe.services.ICompanyService;
@@ -25,5 +22,11 @@ public class CompanyController {
 	private void loginCompany(@RequestBody Company company) {
 		companyService.login(company);
 	}
+/*
+	@PostMapping("/company/qrcode")
+	private void generateQRCode(@RequestBody ) {
+
+	}
+*/
 
 }

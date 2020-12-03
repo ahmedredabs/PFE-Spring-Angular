@@ -1,6 +1,8 @@
 package com.pfe.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "companies")
@@ -15,6 +17,9 @@ public class Company {
 
     @Column
     private String password;
+
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    private Set<QRCode> qrcodes = new HashSet<>();
 
     public Company() {
 
@@ -41,5 +46,12 @@ public class Company {
         this.password = password;
     }
 
+    public void setQrcodes(Set<QRCode> qrcodes){
+        this.qrcodes = qrcodes;
+
+        for(QRCode qrCode : qrcodes){
+            qrCode.setCompanyId(this);
+        }
+    }
 
 }
