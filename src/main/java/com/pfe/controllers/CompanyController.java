@@ -21,10 +21,9 @@ public class CompanyController {
 		companyService.createCompany(company);
 	}
 
-	// TODO !!!
 	@PostMapping("/company/login")
 	private void loginCompany(@RequestBody Company company) {
-		return;
+		companyService.login(company);
 	}
 
 }
