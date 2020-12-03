@@ -19,6 +19,10 @@ public class Citizen {
 		this.isAlerted = isAlerted;
 	}
 
+	public Citizen() {
+
+	}
+
 	public boolean isAlerted() {
 		return isAlerted;
 	}

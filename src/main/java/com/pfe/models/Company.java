@@ -10,7 +10,7 @@ public class Company {
     @GeneratedValue
     private long id;
 
-    @Column
+    @Column(unique = true)
     private String name;
 
     @Column
@@ -35,6 +35,10 @@ public class Company {
 
     public String getPassword(){
         return password;
+    }
+
+    public void setPassword(String password){
+        this.password = password;
     }
 
 

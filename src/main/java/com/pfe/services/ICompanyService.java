@@ -4,4 +4,5 @@ import com.pfe.models.Company;
 
 public interface ICompanyService {
     void createCompany(Company company);
+    boolean login(Company company);
 }
