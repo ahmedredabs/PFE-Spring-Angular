@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 @Entity
 @Table(name = "citizens")
 public class Citizen {
@@ -14,6 +16,9 @@ public class Citizen {
 	private long id;
 	@Column
 	private boolean isAlerted;
+	@Column
+	@Nullable
+	private String name;
 
 	public Citizen(boolean isAlerted) {
 		this.isAlerted = isAlerted;
