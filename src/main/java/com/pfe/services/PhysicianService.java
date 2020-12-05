@@ -1,7 +1,7 @@
 package com.pfe.services;
 
 import com.pfe.models.Physician;
-import com.pfe.repositories.IPhysicianRepository;
+import com.pfe.repositories.PhysicianRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,8 +15,8 @@ public class PhysicianService implements IPhysicianService {
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
     @Override
-    public void createPhysician(Physician newPhysician) {
-        physicianRepository.save(newPhysician);
+    public Physician createPhysician(Physician newPhysician) {
+        return physicianRepository.save(newPhysician);
     }
     
     @Override
