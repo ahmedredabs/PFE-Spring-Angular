@@ -12,17 +12,25 @@ public class Citizen {
 	@Id
 	@GeneratedValue
 	private long id;
-	@Column
-	private boolean isAlerted;
+	@Column()
+	private boolean isAlerted = false;
 	@Column(nullable = true)
 	private String name;
 
-	public Citizen(boolean isAlerted) {
-		this.isAlerted = isAlerted;
-	}
-
 	public Citizen() {
 
+	}
+
+	public Citizen(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public boolean isAlerted() {

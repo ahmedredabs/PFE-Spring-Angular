@@ -1,7 +1,8 @@
 package com.pfe.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pfe.models.Citizen;
@@ -12,8 +13,8 @@ public class CitizenController {
 	@Autowired
 	private ICitizenService citizenservice;
 
-	@GetMapping("/citizen/register")
-	private Citizen createCitizen(Citizen citizen) {
-		return citizenservice.createCitizen();
+	@PostMapping("/citizen/register")
+	private Citizen createCitizen(@RequestBody Citizen citizen) {
+		return citizenservice.createCitizen(citizen);
 	}
 }

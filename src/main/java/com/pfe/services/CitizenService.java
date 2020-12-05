@@ -12,8 +12,8 @@ public class CitizenService implements ICitizenService {
 	private CitizenRepository citizenRepository;
 
 	@Override
-	public Citizen createCitizen() {
-		Citizen citizen = new Citizen(false);
+	public Citizen createCitizen(Citizen citizen) {
+		citizen = new Citizen(citizen.getName());
 		citizenRepository.save(citizen);
 		return citizen;
 	}
