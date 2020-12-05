@@ -15,6 +15,8 @@ public class Citizen {
 
 	@Column
 	private boolean isAlerted;
+	@Column(nullable = true)
+	private String name;
 
 	public Citizen(boolean isAlerted) {
 		this.isAlerted = isAlerted;
