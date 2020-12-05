@@ -46,4 +46,11 @@ public class Establishment {
         this.password = password;
     }
 
+    public Set<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Set<Location> locations) {
+        this.locations = locations;
+    }
 }

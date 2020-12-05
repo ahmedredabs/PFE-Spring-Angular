@@ -16,7 +16,7 @@ public class Location {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "establishment_id", referencedColumnName = "id")
+    @JoinColumn(name = "establishment_id")
     private Establishment establishment;
 
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL)
