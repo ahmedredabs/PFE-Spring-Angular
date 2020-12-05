@@ -11,29 +11,30 @@ public class QRCode {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "company_id")
-    private Company company;
-
-    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "physician_id")
     private Physician physician;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "location_id")
+    private Location location;
+
+    @OneToOne(mappedBy = "qrCode")
+    private Scan scan;
 
     public QRCode(){
 
     }
 
-    // TODO Builder Pattern ????
-
-    public QRCode(Company companyId, String placeName, String placeDescription){
-        this.company = companyId;
+    public QRCode(Location establishment){
+        this.location = establishment;
     }
 
     public QRCode(Physician physician){
         this.physician = physician;
     }
 
-    public Company getCompanyId() {
-        return company;
+    public Location getLocationId() {
+        return location;
     }
 
     public Physician getPhysician() {
@@ -44,8 +45,8 @@ public class QRCode {
         return id;
     }
 
-    public void setCompanyId(Company companyId) {
-        this.company = companyId;
+    public void setLocationId(Location locationId) {
+        this.location = locationId;
     }
 
     public void setPhysician(Physician physicianId) {

@@ -5,8 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "establishments")
+public class Establishment {
 
     @Id
     @GeneratedValue
@@ -18,14 +18,14 @@ public class Company {
     @Column
     private String password;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
-    private Set<QRCode> qrcodes = new HashSet<>();
+    @OneToMany(mappedBy = "establishment", cascade = CascadeType.ALL)
+    private Set<Location> locations = new HashSet<>();
 
-    public Company() {
+    public Establishment() {
 
     }
 
-    public Company(String name, String password){
+    public Establishment(String name, String password){
         this.name = name;
         this.password = password;
     }
@@ -44,14 +44,6 @@ public class Company {
 
     public void setPassword(String password){
         this.password = password;
-    }
-
-    public void setQrcodes(Set<QRCode> qrcodes){
-        this.qrcodes = qrcodes;
-
-        for(QRCode qrCode : qrcodes){
-            qrCode.setCompanyId(this);
-        }
     }
 
 }
