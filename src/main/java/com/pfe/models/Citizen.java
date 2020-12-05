@@ -12,6 +12,7 @@ public class Citizen {
 	@Id
 	@GeneratedValue
 	private long id;
+
 	@Column
 	private boolean isAlerted;
 
