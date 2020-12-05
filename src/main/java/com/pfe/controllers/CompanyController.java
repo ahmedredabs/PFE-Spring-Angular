@@ -1,29 +1,47 @@
 package com.pfe.controllers;
 
+import com.pfe.models.Location;
+import com.pfe.models.QRCode;
+import com.pfe.services.ILocationService;
+import com.pfe.services.IQRCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.pfe.models.Company;
-import com.pfe.services.ICompanyService;
+import com.pfe.models.Establishment;
+import com.pfe.services.IEstablishmentService;
 
 @RestController
 @CrossOrigin(origins = { "http://localhost:4200" })
 public class CompanyController {
 
 	@Autowired
-	private ICompanyService companyService;
+	private IEstablishmentService establishmentService;
+	@Autowired
+	private IQRCodeService qrCodeService;
+	@Autowired
+	private ILocationService locationService;
 
-	@PostMapping("/company/register")
-	private void createCompany(@RequestBody Company company) {
-		companyService.createCompany(company);
+	@PostMapping("/establishment/register")
+	private Establishment createCompany(@RequestBody Establishment establishment) {
+		return establishmentService.createCompany(establishment);
 	}
 
-	@PostMapping("/company/login")
-	private void loginCompany(@RequestBody Company company) {
-		companyService.login(company);
+	@PostMapping("/establishment/login")
+	private Establishment loginCompany(@RequestBody Establishment establishment) {
+		return establishmentService.login(establishment);
+	}
+
+	@PostMapping("/establishment/qrcode")
+	private QRCode generateQRCode(@RequestBody QRCode qrCode) {
+		return qrCodeService.createQRCode(qrCode);
+	}
+
+	@PostMapping("/establishment/location")
+	private Location createLocation(@RequestBody Location location) {
+		System.out.println("Je passe dans le controller");
+		//Establishment establishment = establishmentService.findEstablishment(location.getIdEstablishment());
+		//location.setEstablishment(establishment);
+		return locationService.createLocation(location);
 	}
 
 }

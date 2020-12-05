@@ -1,10 +1,12 @@
 package com.pfe.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "companies")
-public class Company {
+@Table(name = "establishments")
+public class Establishment {
 
     @Id
     @GeneratedValue
@@ -16,11 +18,14 @@ public class Company {
     @Column
     private String password;
 
-    public Company() {
+    @OneToMany(mappedBy = "establishment", cascade = CascadeType.ALL)
+    private Set<Location> locations = new HashSet<>();
+
+    public Establishment() {
 
     }
 
-    public Company(String name, String password){
+    public Establishment(String name, String password){
         this.name = name;
         this.password = password;
     }
@@ -40,6 +45,5 @@ public class Company {
     public void setPassword(String password){
         this.password = password;
     }
-
 
 }
