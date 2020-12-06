@@ -40,4 +40,11 @@ public class Citizen {
 	public long getId() {
 		return id;
 	}
+
+	@Override
+	public String toString() {
+		return "Citizen [id=" + id + ", isAlerted=" + isAlerted + ", name=" + name + "]";
+	}
+	
+	
 }

@@ -1,9 +1,12 @@
 package com.pfe.services;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.pfe.models.Scan;
 import com.pfe.repositories.ScanRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 
+@Service
 public class ScanService implements IScanService {
 
     @Autowired
