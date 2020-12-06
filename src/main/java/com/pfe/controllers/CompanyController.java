@@ -33,14 +33,14 @@ public class CompanyController {
 
 	@PostMapping("/establishment/qrcode")
 	private QRCode generateQRCode(@RequestBody QRCode qrCode) {
+		System.out.println("Je passe dans le controller de la requete \"generateQRCode\"");
+		System.out.println("Location id : " + qrCode.getLocationId());
 		return qrCodeService.createQRCode(qrCode);
 	}
 
 	@PostMapping("/establishment/location")
 	private Location createLocation(@RequestBody Location location) {
-		System.out.println("Je passe dans le controller");
-		//Establishment establishment = establishmentService.findEstablishment(location.getIdEstablishment());
-		//location.setEstablishment(establishment);
+		System.out.println("Je passe dans le controller de la requete \"createLocation\"");
 		return locationService.createLocation(location);
 	}
 

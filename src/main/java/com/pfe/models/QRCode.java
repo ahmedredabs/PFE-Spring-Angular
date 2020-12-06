@@ -25,8 +25,8 @@ public class QRCode {
 
     }
 
-    public QRCode(Location establishment){
-        this.location = establishment;
+    public QRCode(Location location){
+        this.location = location;
     }
 
     public QRCode(Physician physician){
@@ -51,5 +51,17 @@ public class QRCode {
 
     public void setPhysician(Physician physicianId) {
         this.physician = physicianId;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Scan getScan() {
+        return scan;
+    }
+
+    public void setScan(Scan scan) {
+        this.scan = scan;
     }
 }

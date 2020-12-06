@@ -32,11 +32,17 @@ public class Location {
 
     }
 
+    public Location(long id){
+        System.out.println("test 3");
+    }
+
     public Location(Establishment establishment) {
+        System.out.println("test 1");
         this.establishment = establishment;
     }
 
     public Location(Establishment establishment, String name, String description) {
+        System.out.println("test 2");
         new Location(establishment);
         this.name = name;
         this.description = description;
@@ -60,5 +66,13 @@ public class Location {
 
     public void setEstablishment(Establishment establishment) {
         this.establishment = establishment;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 }
