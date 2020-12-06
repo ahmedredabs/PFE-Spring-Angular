@@ -16,13 +16,13 @@ public class Scan {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "qrCode_id")
-    private QRCode qrCode;
+    private Qrcode qrCode;
 
     public Scan(){
 
     }
 
-    public Scan(Citizen citizen, QRCode qrCode){
+    public Scan(Citizen citizen, Qrcode qrCode){
         this.citizen = citizen;
         this.qrCode = qrCode;
     }

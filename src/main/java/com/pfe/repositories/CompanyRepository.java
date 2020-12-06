@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface CompanyRepository extends CrudRepository<Establishment, Long> {
 
-    @Query("select c from Establishment c where c.name=:name")
+    @Query("select c from Establishment c where c.name=?1")
     Establishment findByName(String name);
 
     Establishment findById(long id);

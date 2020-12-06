@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "qrcodes")
-public class QRCode {
+public class Qrcode {
 
     @Id
     @GeneratedValue
@@ -14,22 +14,22 @@ public class QRCode {
     @JoinColumn(name = "physician_id")
     private Physician physician;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "location_id")
+    @OneToOne()
+    @JoinColumn(name = "location_id",referencedColumnName = "id")
     private Location location;
 
     @OneToOne(mappedBy = "qrCode")
     private Scan scan;
 
-    public QRCode(){
+    public Qrcode(){
 
     }
 
-    public QRCode(Location establishment){
-        this.location = establishment;
+    public Qrcode(Location location){
+        this.location = location;
     }
 
-    public QRCode(Physician physician){
+    public Qrcode(Physician physician){
         this.physician = physician;
     }
 
@@ -52,4 +52,32 @@ public class QRCode {
     public void setPhysician(Physician physicianId) {
         this.physician = physicianId;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Scan getScan() {
+        return scan;
+    }
+
+    public void setScan(Scan scan) {
+        this.scan = scan;
+    }
+    
+    public void setLocation(Location location) {
+    	this.location=location;
+    }
+    
+
+	public Location getLocation() {
+		return location;
+	}
+
+	@Override
+	public String toString() {
+		return "Qrcode [id=" + id + ", physician=" + physician + ", location=" + location + ", scan=" + scan + "]";
+	}
+    
+    
 }

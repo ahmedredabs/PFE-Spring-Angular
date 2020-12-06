@@ -7,6 +7,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface PhysicianRepository extends CrudRepository<Physician, Long> {
 
-	@Query("select p from Physician p where p.name=:name")
+	@Query("select p from Physician p where p.name=?1")
 	Physician findByName(String name);
 }

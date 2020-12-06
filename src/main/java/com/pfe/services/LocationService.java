@@ -13,7 +13,6 @@ public class LocationService implements ILocationService {
 
     @Override
     public Location createLocation(Location location) {
-        System.out.println("Je passe dans l'impl du service");
         return locationRepository.save(location);
     }
 }

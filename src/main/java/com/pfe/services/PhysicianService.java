@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class PhysicianService implements IPhysicianService {
 
     @Autowired
-    private IPhysicianRepository physicianRepository;
+    private PhysicianRepository physicianRepository;
     
     private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
 
