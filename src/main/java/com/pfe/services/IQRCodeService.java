@@ -1,8 +1,8 @@
 package com.pfe.services;
 
 
-import com.pfe.models.QRCode;
+import com.pfe.models.Qrcode;
 
 public interface IQRCodeService {
-    QRCode createQRCode(QRCode qrCode);
+    Qrcode createQRCode(Qrcode qrCode);
 }
