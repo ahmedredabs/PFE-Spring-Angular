@@ -1,7 +1,8 @@
 package com.pfe.repositories;
 
-import com.pfe.models.Scan;
 import org.springframework.data.repository.CrudRepository;
+
+import com.pfe.models.Scan;
 
 public interface ScanRepository extends CrudRepository<Scan,Long> {
 }

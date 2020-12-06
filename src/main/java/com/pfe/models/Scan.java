@@ -14,15 +14,36 @@ public class Scan {
     @JoinColumn(name = "citizen_id")
     private Citizen citizen;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "qrCode_id")
-    private QRCode qrCode;
+    private Qrcode qrCode;
 
-    public Scan(){
+    @Override
+	public String toString() {
+		return "Scan [id=" + id + ", citizen=" + citizen + ", qrCode=" + qrCode + "]";
+	}
+
+	public Citizen getCitizen() {
+		return citizen;
+	}
+
+	public Qrcode getQrCode() {
+		return qrCode;
+	}
+
+	public void setCitizen(Citizen citizen) {
+		this.citizen = citizen;
+	}
+
+	public void setQrCode(Qrcode qrCode) {
+		this.qrCode = qrCode;
+	}
+
+	public Scan(){
 
     }
 
-    public Scan(Citizen citizen, QRCode qrCode){
+    public Scan(Citizen citizen, Qrcode qrCode){
         this.citizen = citizen;
         this.qrCode = qrCode;
     }

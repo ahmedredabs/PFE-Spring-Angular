@@ -20,7 +20,7 @@ public class Location {
     private Establishment establishment;
 
     @OneToOne(mappedBy = "location", cascade = CascadeType.ALL,orphanRemoval=true)
-    private QRCode qrCode;
+    private Qrcode qrCode;
 
     @Column
     private String name;
@@ -60,7 +60,7 @@ public class Location {
         return name;
     }
 
-    public QRCode getQrCode() {
+    public Qrcode getQrCode() {
         return qrCode;
     }
 
@@ -76,12 +76,12 @@ public class Location {
         this.id = id;
     }
 
-	public void setQrCode(QRCode qrCode) {
+	public void setQrCode(Qrcode qrCode) {
 		
 	    if (sameAsFormer(qrCode))
 	        return;
 	      //set new Qrcode
-	      QRCode oldQrcode = this.qrCode;
+	      Qrcode oldQrcode = this.qrCode;
 	      this.qrCode = qrCode;
 	      //remove from the old location
 	      if (oldQrcode!=null)
@@ -91,7 +91,7 @@ public class Location {
 	    	  qrCode.setLocation(this);
 	}
 	
-	  private boolean sameAsFormer(QRCode newQrcode) {
+	  private boolean sameAsFormer(Qrcode newQrcode) {
 		    return qrCode == null ? 
 		    		newQrcode == null : qrCode.equals(newQrcode);
 		  }

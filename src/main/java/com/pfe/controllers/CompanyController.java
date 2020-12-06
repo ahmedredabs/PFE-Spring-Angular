@@ -1,7 +1,7 @@
 package com.pfe.controllers;
 
 import com.pfe.models.Location;
-import com.pfe.models.QRCode;
+import com.pfe.models.Qrcode;
 import com.pfe.services.ILocationService;
 import com.pfe.services.IQRCodeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,7 @@ public class CompanyController {
     }
 
     @PostMapping("/establishment/qrcode")
-    private QRCode generateQRCode(@RequestBody QRCode qrCode) {
+    private Qrcode generateQRCode(@RequestBody Qrcode qrCode) {
         System.out.println(qrCode.toString());
         return qrCodeService.createQRCode(qrCode);
     }

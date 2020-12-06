@@ -1,10 +1,21 @@
 package com.pfe.models;
 
-import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "qrcodes")
-public class QRCode {
+public class Qrcode {
 
     @Id
     @GeneratedValue
@@ -18,18 +29,18 @@ public class QRCode {
     @JoinColumn(name = "location_id",referencedColumnName = "id")
     private Location location;
 
-    @OneToOne(mappedBy = "qrCode")
-    private Scan scan;
+    @OneToMany(mappedBy = "qrCode", orphanRemoval=true)
+    private List<Scan> scans = new ArrayList<>();
 
-    public QRCode(){
+    public Qrcode(){
 
     }
 
-    public QRCode(Location location){
+    public Qrcode(Location location){
         this.location = location;
     }
 
-    public QRCode(Physician physician){
+    public Qrcode(Physician physician){
         this.physician = physician;
     }
 
@@ -57,15 +68,7 @@ public class QRCode {
         this.id = id;
     }
 
-    public Scan getScan() {
-        return scan;
-    }
-
-    public void setScan(Scan scan) {
-        this.scan = scan;
-    }
-    
-    public void setLocation(Location location) {
+	public void setLocation(Location location) {
     	this.location=location;
     }
     
@@ -73,10 +76,10 @@ public class QRCode {
 	public Location getLocation() {
 		return location;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "Qrcode [id=" + id + ", physician=" + physician + ", location=" + location + ", scan=" + scan + "]";
+		return "Qrcode [id=" + id + ", physician=" + physician + ", location=" + location + ", scan=" + scans + "]";
 	}
     
     
