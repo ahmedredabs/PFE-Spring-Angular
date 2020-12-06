@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "qrcodes")
-public class Qrcode {
+public class QRCode {
 
     @Id
     @GeneratedValue
@@ -21,15 +21,15 @@ public class Qrcode {
     @OneToOne(mappedBy = "qrCode")
     private Scan scan;
 
-    public Qrcode(){
+    public QRCode(){
 
     }
 
-    public Qrcode(Location location){
+    public QRCode(Location location){
         this.location = location;
     }
 
-    public Qrcode(Physician physician){
+    public QRCode(Physician physician){
         this.physician = physician;
     }
 

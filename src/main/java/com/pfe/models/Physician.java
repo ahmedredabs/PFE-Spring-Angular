@@ -19,7 +19,7 @@ public class Physician {
     private String password;
 
     @OneToMany(mappedBy = "physician", cascade = CascadeType.ALL)
-    private Set<Qrcode> qrcodes = new HashSet<>();
+    private Set<QRCode> qrcodes = new HashSet<>();
 
     public Physician(){
 
@@ -42,10 +42,10 @@ public class Physician {
         return password;
     }
 
-    public void setQrcodes(Set<Qrcode> qrcodes){
+    public void setQrcodes(Set<QRCode> qrcodes){
         this.qrcodes = qrcodes;
 
-        for(Qrcode qrCode : qrcodes){
+        for(QRCode qrCode : qrcodes){
             qrCode.setPhysician(this);
         }
     }
