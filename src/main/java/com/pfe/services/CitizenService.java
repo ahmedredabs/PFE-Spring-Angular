@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.pfe.models.Citizen;
 import com.pfe.repositories.CitizenRepository;
+import com.pfe.utils.TokenManager;
 
 @Service
 public class CitizenService implements ICitizenService {
@@ -12,9 +13,9 @@ public class CitizenService implements ICitizenService {
 	private CitizenRepository citizenRepository;
 
 	@Override
-	public Citizen createCitizen(Citizen citizen) {
+	public String createCitizen(Citizen citizen) {
 		citizen = new Citizen(citizen.getName());
 		citizenRepository.save(citizen);
-		return citizen;
+		return TokenManager.generateToken(String.valueOf(citizen.getId()));
 	}
 }

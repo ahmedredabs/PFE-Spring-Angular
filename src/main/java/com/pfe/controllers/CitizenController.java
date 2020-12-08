@@ -14,7 +14,7 @@ public class CitizenController {
 	private ICitizenService citizenservice;
 
 	@PostMapping("/citizen/register")
-	private Citizen createCitizen(@RequestBody Citizen citizen) {
+	private String createCitizen(@RequestBody Citizen citizen) {
 		return citizenservice.createCitizen(citizen);
 	}
 }
