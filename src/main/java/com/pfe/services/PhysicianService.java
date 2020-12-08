@@ -12,17 +12,21 @@ public class PhysicianService implements IPhysicianService {
     @Autowired
     private PhysicianRepository physicianRepository;
     
-    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder(16);
+    private BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
     @Override
     public Physician createPhysician(Physician newPhysician) {
-        return physicianRepository.save(newPhysician);
+        newPhysician.setPassword(encoder.encode(newPhysician.getPassword()));
+    	return physicianRepository.save(newPhysician);
     }
     
     @Override
-    public boolean loginPhysician(Physician physician) {
-    	Physician phycisianInDB = physicianRepository.findByName(physician.getName());
-    	return encoder.matches(physician.getPassword(), phycisianInDB.getPassword());
+    public Physician loginPhysician(Physician physician) {
+    	Physician physicianInDB = physicianRepository.findByName(physician.getName());
+    	if(encoder.matches(physician.getPassword(), physicianInDB.getPassword())) {
+    		return physicianInDB;
+    	}
+    	return null;
     }
 
 }

@@ -41,6 +41,9 @@ public class Physician {
     public String getPassword(){
         return password;
     }
+    public void setPassword(String password) {
+    	this.password=password;
+    }
 
     public void setQrcodes(Set<Qrcode> qrcodes){
         this.qrcodes = qrcodes;

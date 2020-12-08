@@ -44,13 +44,12 @@ public class Qrcode {
         this.physician = physician;
     }
 
-    public Location getLocationId() {
-        return location;
-    }
-
     public Physician getPhysician() {
         return physician;
     }
+    public Location getLocation() {
+		return location;
+	}
 
     public long getId() {
         return id;
@@ -72,11 +71,6 @@ public class Qrcode {
     	this.location=location;
     }
     
-
-	public Location getLocation() {
-		return location;
-	}
-	
 	@Override
 	public String toString() {
 		return "Qrcode [id=" + id + ", physician=" + physician + ", location=" + location + ", scan=" + scans + "]";

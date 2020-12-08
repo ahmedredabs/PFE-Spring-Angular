@@ -5,5 +5,5 @@ import com.pfe.models.Physician;
 public interface IPhysicianService {
     Physician createPhysician(Physician physician);
     
-    boolean loginPhysician(Physician physician);
+    Physician loginPhysician(Physician physician);
 }
