@@ -1,5 +1,7 @@
 package com.pfe.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +21,7 @@ public class Establishment {
     private String password;
 
     @OneToMany(mappedBy = "establishment", cascade = CascadeType.ALL,orphanRemoval=true)
+    @JsonIgnore
     private Set<Location> locations = new HashSet<>();
 
     public Establishment() {
@@ -53,8 +56,6 @@ public class Establishment {
     public void setLocations(Set<Location> locations) {
         this.locations = locations;
     }
-    
-    
 
 	public void setId(long id) {
 		this.id = id;
