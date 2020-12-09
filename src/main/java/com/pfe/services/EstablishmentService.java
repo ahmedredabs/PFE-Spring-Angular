@@ -22,6 +22,7 @@ public class EstablishmentService implements IEstablishmentService {
 
     @Override
     public Establishment login(Establishment establishment) {
+        System.out.println(establishment.toString());
         Establishment establishmentInDb = CompanyRepository.findByName(establishment.getName());
         if(encoder.matches(establishment.getPassword(), establishmentInDb.getPassword())){
             return establishmentInDb;
