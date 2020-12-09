@@ -24,6 +24,10 @@ public class Physician {
     public Physician(){
 
     }
+    
+    public Physician(long id){
+    	this.id=id;
+    }
 
     public Physician(String name, String password){
         this.name = name;
@@ -52,6 +56,13 @@ public class Physician {
             qrCode.setPhysician(this);
         }
     }
+
+	@Override
+	public String toString() {
+		return "Physician [id=" + id + ", name=" + name + ", password=" + password + ", qrcodes=" + qrcodes + "]";
+	}
+    
+    
 
 }
 

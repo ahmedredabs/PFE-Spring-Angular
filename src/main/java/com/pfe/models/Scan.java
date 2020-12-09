@@ -44,13 +44,21 @@ public class Scan {
 	}
 
 	public Scan(){
-
+		this.setScanDate(LocalDate.now());
     }
 
     public Scan(Citizen citizen, Qrcode qrCode){
         this.citizen = citizen;
         this.qrCode = qrCode;
-        this.scanDate = LocalDate.now();
+        this.setScanDate(LocalDate.now());
     }
+
+	public LocalDate getScanDate() {
+		return scanDate;
+	}
+
+	public void setScanDate(LocalDate scanDate) {
+		this.scanDate = scanDate;
+	}
 
 }

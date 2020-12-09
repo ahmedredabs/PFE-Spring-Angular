@@ -39,6 +39,7 @@ public class Qrcode {
     public Qrcode(Location location){
         this.location = location;
     }
+    
 
     public Qrcode(Physician physician){
         this.physician = physician;

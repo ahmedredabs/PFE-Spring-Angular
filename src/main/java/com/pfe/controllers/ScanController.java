@@ -17,13 +17,13 @@ public class ScanController {
 	@PostMapping("/scan/visitScan")
     private void createVisitScan(@RequestBody Scan scan){
 		System.out.println("visitScanContent : "+scan.toString());
-		scanService.createScan(scan);
+		scanService.createVisitScan(scan);
     }
 	
 	@PostMapping("/scan/alertScan")
     private void createAlertScan(@RequestBody Scan scan){
 		System.out.println("alertScanContent : "+ scan.toString());
-		scanService.createScan(scan);
+		scanService.createAlertScan(scan);
     }
     
 }
