@@ -21,7 +21,7 @@ public class Qrcode {
     @GeneratedValue
     private long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     @JoinColumn(name = "physician_id")
     private Physician physician;
 
