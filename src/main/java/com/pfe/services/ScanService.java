@@ -27,7 +27,7 @@ public class ScanService implements IScanService {
     @Override
     public Scan createAlertScan(Scan scan) {
     	Scan scanInsere = scanRepository.save(scan);
-    	List<Scan> listOfUsersToAlert= scanRepository.findScansByCitizenId(scan.getCitizen().getId());
+    	List<Scan> listOfUsersToAlert= scanRepository.findScansByCitizenId(scan.getQrCode().getId());
     	for(Scan scanOfUserToAlert:listOfUsersToAlert) {
     		Citizen citizenToAlert = citizenRepository.findById(scanOfUserToAlert.getCitizen().getId()).get();
     		citizenToAlert.setAlerted(true);
