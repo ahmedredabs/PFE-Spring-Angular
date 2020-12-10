@@ -28,11 +28,8 @@ public class ScanService implements IScanService {
     public Scan createAlertScan(Scan scan) {
     	Scan scanInsere = scanRepository.save(scan);
     	List<Scan> listOfUsersToAlert= scanRepository.findScansByCitizenId(scan.getCitizen().getId());
-    	System.out.println("id utilise: "+ scan.getCitizen().getId());
-    	System.out.println("la liste des users a alerter: " + listOfUsersToAlert.toString());
     	for(Scan scanOfUserToAlert:listOfUsersToAlert) {
     		Citizen citizenToAlert = citizenRepository.findById(scanOfUserToAlert.getCitizen().getId()).get();
-    		System.out.println("un user a alert:" + citizenToAlert);
     		citizenToAlert.setAlerted(true);
     		citizenRepository.save(citizenToAlert);
     	}

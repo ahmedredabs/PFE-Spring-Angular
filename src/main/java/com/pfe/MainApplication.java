@@ -25,16 +25,6 @@ public class MainApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);
 	}
-	
-	@Bean
-	  public CommandLineRunner demo(CitizenRepository repositoryCitizen, QRCodeRepository repositoryQRCode) {
-	    return (args) -> {
-	      // save a few customers
-	      repositoryCitizen.save(new Citizen("test"));
-	      repositoryQRCode.save(new Qrcode());
-	    };
-	  }
-
 
 	@Bean
 	public CorsFilter corsFilter() {
